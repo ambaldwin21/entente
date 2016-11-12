@@ -1,10 +1,33 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
+<html ng-app="ententeApp">
 
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title>Entente</title>
+
+  <!-- angular -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-resource.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-cookies.js"></script>
+
+  <!-- local js -->
+  <script src="./javascripts/app.js"></script>
+
+  <!-- controllers -->
+  <script src="./javascripts/controllers/main_controller.js"></script>
+  <script src="./javascripts/controllers/register_controller.js"></script>
+  <script src="./javascripts/controllers/questions_controller.js"></script>
+  <script src="./javascripts/controllers/profile_controller.js"></script>
+
+</head>
+
+<body>
+
+  Angular is working! {{9*9}}
+
+  <div ng-view></div>
+
+</body>
+
 </html>
