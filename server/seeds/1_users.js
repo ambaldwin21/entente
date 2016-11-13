@@ -16,8 +16,8 @@ exports.seed = function(knex) {
         location: '60637'
       },
       {
-        name: 'alibriggs',
-        username: 'alib',
+        name: 'alihobbs',
+        username: 'alih',
         email: 'ali@gmail.com',
         hash: '$2a$12$C9AYYmcLVGYlGoO4vSZTPud9ArJwbGRsJ6TUsNULzR48z8fOnTXbS',
         location: '80304'
