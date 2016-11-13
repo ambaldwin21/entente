@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <title>Entente</title>
 
+
   <!-- angular -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
@@ -17,29 +18,12 @@
   <!-- local css -->
   <link rel="stylesheet" href="./stylesheets/style.css">
 
-
   <!-- controllers -->
   <script src="./javascripts/controllers/main_controller.js"></script>
   <script src="./javascripts/controllers/register_controller.js"></script>
   <script src="./javascripts/controllers/questions_controller.js"></script>
   <script src="./javascripts/controllers/profile_controller.js"></script>
 
-  <link rel="stylesheet" href="//js.arcgis.com/4.1/esri/css/main.css">
-  <link rel="stylesheet" href="https://esri.github.io/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min.css">
-  <link rel="stylesheet" href="http://esri.github.com/calcite-maps/dist/css/calcite-bootstrap.min-v0.2.css">
-
-  <style>
-        html,
-        body,
-        #viewDiv {
-            padding: 0;
-            margin: 0;
-            height: 676px;
-        }
-    </style>
-
-  <!-- load Esri JSAPI -->
-  <script src="//js.arcgis.com/4.1/"></script>
 
   <!-- load angular-esri-map -->
   <script src="//unpkg.com/angular-esri-map@2"></script>
@@ -47,12 +31,36 @@
   <!-- services -->
   <script src="./javascripts/services/entente_service.js"></script>
 
+  <!-- Calcite Bootstrap -->
+  <link rel="stylesheet" href="http://esri.github.com/calcite-maps/dist/css/calcite-bootstrap.min-v0.2.css">
+
+
+  <!-- Calcite Maps -->
+  <link rel="stylesheet" href="http://esri.github.com/calcite-maps/dist/css/calcite-maps-arcgis-4.x.min-v0.2.css">
+
+  <!-- ArcGIS JS 4.0 -->
+  <link rel="stylesheet" href="https://js.arcgis.com/4.0/esri/css/main.css">
+
+  <style>
+    html,
+    body,
+    #mapViewDiv {
+      padding: 0;
+      margin: 0;
+      height: 750px;
+    }
+  </style>
 
 </head>
 
 <body>
 
   <div ng-view></div>
+
+  <script src="https://js.arcgis.com/4.0/"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 </body>
 
