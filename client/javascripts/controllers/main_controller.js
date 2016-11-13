@@ -3,8 +3,9 @@ app.controller('MainController', function(esriLoader, $scope, $routeParams, $loc
     require([
         "esri/Map",
         "esri/views/SceneView",
+        "esri/widgets/Search",
         "dojo/domReady!"
-    ], function(Map, SceneView) {
+    ], function(Map, SceneView, Search) {
 
         var map = new Map({
             basemap: "streets"
@@ -16,6 +17,17 @@ app.controller('MainController', function(esriLoader, $scope, $routeParams, $loc
             center: [-101.17, 21.78],
             scale: 50000000
         })
+
+        var searchWidget = new Search({
+              view: view
+          })
+
+          searchWidget.startup()
+
+          view.ui.add(searchWidget, {
+              position: "top-left",
+              index: 0
+          })
 
     })
 
