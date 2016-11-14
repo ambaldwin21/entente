@@ -25,6 +25,7 @@ app.controller('MainController', function(esriLoader, $scope, $routeParams, $loc
             container: "mapViewDiv",
             padding: {
                 top: 50
+
             }
         });
 
