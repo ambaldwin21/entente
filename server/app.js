@@ -29,7 +29,7 @@ app.use('/register', register);
 app.use('/signup', signup);
 app.use('/questions', questions);
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8000;
 
 app.listen(port, () => {
     if (app.get('env') !== 'development') {
