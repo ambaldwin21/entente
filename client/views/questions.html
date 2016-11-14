@@ -1,1 +1,22 @@
 <h1>Made it to Questions page</h1>
+
+
+<!-- <h3>Rating: {{rating}}/5 - demo of theming classes</h3>
+<div layout="">
+    <div flex="10" layout="" layout-align="center center">
+        <span class="md-body-1">default</span>
+    </div>
+    <md-slider flex="" md-discrete="" ng-model="rating1" step="1" min="1" max="5" aria-label="rating">
+    </md-slider>
+</div> -->
+<div class="container">
+  <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset panel panel-default">
+    <md-slider flex md-discrete aria-label="rating" tick-interval="1" ng-model="rating.one" step="1" min="1" max="10">
+    </md-slider>
+    <md-slider flex md-discrete aria-label="rating" tick-interval="1" ng-model="rating.two" step="1" min="1" max="10">
+    </md-slider>
+    <md-slider flex md-discrete aria-label="rating" tick-interval="1" ng-model="rating.three" step="1" min="1" max="10">
+    </md-slider>
+    <button type="button" name="button" ng-click="submitRating(rating)">Submit!</button>
+  </div>
+</div>

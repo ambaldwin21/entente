@@ -1,4 +1,4 @@
-var app = angular.module('ententeApp', ['ngRoute', 'ngResource', 'ngCookies', 'esri.map'])
+var app = angular.module('ententeApp', ['ngRoute', 'ngResource', 'ngCookies', 'esri.map', 'ngMaterial'])
 
 app.config(['$resourceProvider', function($resourceProvider) {
   $resourceProvider.defaults.stripTrailingSlashes = false;
