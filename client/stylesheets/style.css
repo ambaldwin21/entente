@@ -94,7 +94,9 @@ hr.style-four {
   letter-spacing: 0.05em;
 }
 
-
+.about {
+  padding-top: 30px;
+}
 
 
 p {
@@ -102,4 +104,8 @@ p {
   color: silver;
   font-weight: lighter;
 
+}
+
+.glyphicon-list {
+  float: none;
 }
