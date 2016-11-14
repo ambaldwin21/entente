@@ -1,12 +1,11 @@
 app.controller('RegisterController', function ($scope, $routeParams, $location, ententeService, $cookies) {
 
   $scope.submitLogIn = function(returningUser) {
-      ententeService.login.save(returningUser, function(loggedinUser) {
-        if(!loggedinUser.message) {
+      ententeService.login.save(returningUser, function(loggedinUser) {        if(!loggedinUser.message) {
           $cookies.putObject('loggedin', loggedinUser)
           $scope.returningUser = {}
           $scope.logIn.$setPristine()
-          $location.url('/')
+          $location.url('/profile')
         } else {
           $scope.error = loggedinUser.message
         }

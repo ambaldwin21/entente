@@ -1,54 +1,57 @@
-app.controller('ProfileController', function ($scope, $routeParams, $location, $cookies) {
-  var view;
-  require([
-      // ArcGIS JS
-      "esri/views/MapView",
-      "esri/WebMap",
-      "esri/widgets/Legend",
-      "dojo/query",
-      "esri/widgets/Search",
-      "dojo/domReady!"
-  ], function(MapView, WebMap, Legend, query, Search) {
+app.controller('ProfileController', function($scope, $routeParams, $location, $cookies) {
 
-      // Webmap
-      var webmap = new WebMap({
-          portalItem: {
-              id: "d0260a4512d0431b84d628e000b9d25e"
-          }
-      });
+    $scope.user = $cookies.getObject('loggedin')
 
-      // View
-      var view = new MapView({
-          map: webmap,
-          container: "profileMap",
-          padding: {
-              top: 50
-          }
-      });
+    var view;
+    require([
+        // ArcGIS JS
+        "esri/views/MapView",
+        "esri/Map",
+        "esri/widgets/Legend",
+        "dojo/query",
+        "esri/widgets/Search",
+        "dojo/domReady!"
+    ], function(MapView, Map, Legend, query, Search) {
 
-      // Legend
-      view.then(function(result) {
-          var legend = new Legend({
-              view: view,
-              layerInfos: [{
-                  layer: view.map.layers.items[0],
-                  title: ""
-              }]
-          });
-          view.ui.add(legend, "top-right");
-          query("#" + legend.id).addClass("collapse in");
-      });
+        var map = new Map({
+            basemap: "streets",
+            ground: "world-elevation"
+        })
 
-      var searchWidget = new Search({
-          view: view
-      })
+        // View
+        var view = new MapView({
+            map: map,
+            container: "profileMap",
+            padding: {
+                top: 50
+            },
+            scale: 50000000,
+            center: [-101.17, 21.78]
+        });
 
-      searchWidget.startup()
+        // Legend
+        view.then(function(result) {
+            var legend = new Legend({
+                view: view,
+                layerInfos: [{
+                    layer: view.map.layers.items[0],
+                    title: ""
+                }]
+            });
+            view.ui.add(legend, "top-right");
+            query("#" + legend.id).addClass("collapse in");
+        });
 
-      view.ui.add(searchWidget, {
-          position: "top-left",
-          index: 0
-      })
+        var searchWidget = new Search({
+            view: view
+        })
 
-  })
+        searchWidget.startup()
+
+        view.ui.add(searchWidget, {
+            position: "top-left",
+            index: 0
+        })
+
+    })
 })
