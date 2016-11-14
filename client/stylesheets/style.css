@@ -1,0 +1,35 @@
+html,
+body,
+#mapViewDiv {
+  padding: 0;
+  margin: 0;
+  height: 767px;
+}
+
+#sidebar-wrapper {
+  margin-left: -250px;
+  left: 250px;
+  width: 25%;
+  background: black;
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 1000;
+  transition: all 0.4s ease 0s;
+}
+
+#profileMap {
+  position: relative;
+  width: 75%;
+  height: 767px;
+  display: inline-block;
+}
+
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  width: 25%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
