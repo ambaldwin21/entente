@@ -11,6 +11,12 @@ app.service('ententeService', function ($resource) {
           method:'POST',
           isArray: true
         }
-      })
+      }),
+    questions: $resource('questions/:id', {id: '@id'}, {
+      'save': {
+        method: 'POST',
+        isArray: false
+      }
+    })
     }
 })

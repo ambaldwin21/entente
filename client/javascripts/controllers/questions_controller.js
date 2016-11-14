@@ -1,15 +1,17 @@
-app.controller('QuestionsController', function ($scope, $routeParams, $location, $cookies) {
+app.controller('QuestionsController', function ($scope, $location, $cookies, ententeService) {
 
+  let cookie = $cookies.getObject('loggedin')
 
   $scope.submitRating = function(rating) {
-    console.log('rating in controller', rating);
-  //     redditService.login(returningUser).then(function(loggedinUser) {
-  //         $scope.returningUser = {}
-  //         $scope.logIn.$setPristine()
-  //         $location.url('/')
-  //     }).catch(function(error) {
-  //         $scope.error = 'Bad email or password! Please try again.'
-  //     })
+    let insertedRating = {
+      user_id: cookie.id,
+      rating1: rating.one,
+      rating2: rating.two,
+      rating3: rating.three
+    }
+      ententeService.questions.save(insertedRating, function(backRating) {
+          $location.url('/profile')
+      })
   }
 
 })

@@ -5,7 +5,6 @@ var bcrypt = require('bcrypt');
 
 
 router.post('/', function(req, res, next) {
-  console.log('req.body in signup', req.body);
     knex('users')
         .where('email', req.body.email)
         .then(function(user) {
