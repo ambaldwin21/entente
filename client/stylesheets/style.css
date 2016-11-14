@@ -42,14 +42,14 @@ body,
   padding: inherit;
 }
 
-.panel {
-  color: black;
-}
-
-#chat {
+#buttonGroup {
   position: absolute;
   bottom: 0;
   right: 0;
+}
+
+.panel {
+  color: black;
 }
 
 #mapContainer {

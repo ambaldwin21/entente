@@ -1,11 +1,11 @@
-<h1>Made it to Register Page</h1>
 
+<div class="container">
 <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset">
     <p class="error">{{error}}</p>
 </div>
 
-<h3>log in form:</h3>
-<form name="logIn" ng-submit="submitLogIn(returningUser)">
+<h3><a href="" ng-click="showLogIn = !showLogIn">Log In:</a></h3>
+<form name="logIn" ng-submit="submitLogIn(returningUser)" ng-show="showLogIn">
   <div class="form-group" ng-class="{'has-error' : logIn.username.$invalid && !logIn.username.$pristine,'has-success' : logIn.username.$valid }">
     <label class="control-label" for="username">Username:</label>
     <input type="text" name="username" class="form-control" ng-model="returningUser.username" ng-minlength="2" ng-maxlength="30" ng-required="true" placeholder="Username">
@@ -24,10 +24,10 @@
 
 <br>
 
-<h3>Signup form:</h3>
-<form name="signUp" ng-submit="submitSignUp(newUser)">
+<h3><a href="" ng-click="showSignUp = !showSignUp">Sign Up:</h3>
+<form name="signUp" ng-submit="submitSignUp(newUser)" ng-show="showSignUp">
   <div class="form-group" ng-class="{'has-error' : signUp.name.$invalid && !signUp.name.$pristine,'has-success' : signUp.name.$valid }">
-    <label class="control-label" for="name">Name:</label>
+    <a><label class="control-label" for="name">Name:</label></a>
     <input type="text" name="name" class="form-control" ng-model="newUser.name" ng-minlength="2" ng-maxlength="30" ng-required="true" placeholder="Name">
     <small ng-show="signUp.name.$error.minlength" class="help-block">Name is too short.</small>
     <small ng-show="signUp.name.$error.maxlength" class="help-block">Name is too long.</small>
@@ -58,3 +58,4 @@
   </div>
   <button type="submit" class="btn btn-default" ng-disabled="signUp.$invalid">Submit</button>
 </form>
+</div>
