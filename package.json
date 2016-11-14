@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "knex": "knex",
-    "heroku-postbuild": "knex migrate:latest",
+    "heroku-postbuild": "knex migrate:latest --knexfile ./server/knexfile.js",
     "nodemon": "node ./server/app.js",
     "start": "node ./server/bin/www"
   },
