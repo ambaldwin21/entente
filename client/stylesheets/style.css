@@ -8,6 +8,8 @@ body,
 
 #sidebar-wrapper {
   margin-left: -250px;
+  padding: 20px;
+  color: white;
   left: 250px;
   width: 25%;
   background: black;
@@ -32,4 +34,19 @@ body,
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+#welcome {
+  font-size: 50px;
+  padding: inherit;
+}
+
+.panel {
+  color: black;
+}
+
+#chat {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
