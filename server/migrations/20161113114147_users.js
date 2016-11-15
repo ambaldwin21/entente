@@ -5,7 +5,8 @@ exports.up = function(knex) {
     table.string('username').notNullable().unique();
     table.string('email').unique()
     table.specificType('hash', 'character(60)')
-    table.string('location')
+    table.float('Lat')
+    table.float('Long')
     table.timestamps(true, true);
   });
 };
