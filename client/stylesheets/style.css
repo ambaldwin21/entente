@@ -2,9 +2,18 @@
 html,
 body,
 #mapViewDiv {
+  position: relative;
   padding: 0;
-  margin: 0;
-  height: 767px;
+  margin-top: 20px;
+  height: 700px;
+}
+
+#search {
+   display: block;
+   position: absolute;
+   z-index: 3;
+   top: 40px;
+   left: 75px;
 }
 
 #sidebar-wrapper {
