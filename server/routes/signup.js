@@ -25,10 +25,10 @@ router.post('/', function(req, res, next) {
                         res.json(user)
                     })
             } else {
-              const error = {
-                message: 'Already a user, please login.'
-              }
-              res.json(error)
+                const error = {
+                    message: 'Already a user, please login.'
+                }
+                res.json([error])
             }
 
         })

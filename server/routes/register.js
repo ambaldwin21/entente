@@ -8,14 +8,17 @@ router.post('/', (req, res, next) => {
         .where('username', req.body.username)
         .first()
         .then((user) => {
-            var passwordMatch = bcrypt.compareSync(req.body.password, user.hash)
-            if (passwordMatch == false) {
-              const error = {
-                message: 'Bad email or password! Please try again.'
-              }
-              res.json(error)
+            if (user) {
+                var passwordMatch = bcrypt.compareSync(req.body.password, user.hash)
+                if (passwordMatch == true) {
+                    res.json(user)
+                }
             } else {
-                res.json(user)
+                let error = {
+                    message: 'Incorrect username or password, please try again.'
+                }
+                console.log(error);
+                res.json(error)
             }
         })
 });

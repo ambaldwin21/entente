@@ -118,3 +118,10 @@ p {
 .glyphicon-list {
   float: none;
 }
+
+.questions-text {
+  font-family: 'Raleway', sans-serif;
+  color: #115F9E;
+  text-align: center;
+  font-size: 20px;
+}

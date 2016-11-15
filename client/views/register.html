@@ -1,61 +1,78 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
 
-<div class="container">
-<div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset">
-    <p class="error">{{error}}</p>
-</div>
+      </a>
+    </div>
+  </div>
+</nav>
 
-<h3><a href="" ng-click="showLogIn = !showLogIn">Log In:</a></h3>
-<form name="logIn" ng-submit="submitLogIn(returningUser)" ng-show="showLogIn">
-  <div class="form-group" ng-class="{'has-error' : logIn.username.$invalid && !logIn.username.$pristine,'has-success' : logIn.username.$valid }">
-    <label class="control-label" for="username">Username:</label>
-    <input type="text" name="username" class="form-control" ng-model="returningUser.username" ng-minlength="2" ng-maxlength="30" ng-required="true" placeholder="Username">
-    <small ng-show="logIn.username.$error.minlength" class="help-block">Username is too short.</small>
-    <small ng-show="logIn.username.$error.maxlength" class="help-block">Username is too long.</small>
-  </div>
-  <div class="form-group" ng-class="{'has-error' : logIn.password.$invalid && !logIn.password.$pristine,'has-success' : logIn.password.$valid }">
-    <label class="control-label" for="password">Password:</label>
-    <input type="password" name="password" class="form-control" ng-model="returningUser.password" ng-minlength="2" ng-maxlength="100" ng-required="true" placeholder="Password">
-    <small ng-show="logIn.password.$error.minlength" class="help-block">Password is too short.</small>
-    <small ng-show="logIn.password.$error.maxlength" class="help-block">Password is too long.</small>
-  </div>
+<div class="container login-container">
+    <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset">
+        <p class="error">{{error}}</p>
+    </div>
 
-  <button type="submit" class="btn btn-default" ng-disabled="logIn.$invalid">Submit</button>
-</form>
+    <br>
+    <button type="button" name="button" class="btn btn-default" ng-click="showLogIn = !showLogIn">Log In</button>
+    <button type="button" name="button" class="btn btn-default" ng-click="showSignUp= !showSignUp">Sign Up</button>
+    <br>
+    <br>
 
-<br>
 
-<h3><a href="" ng-click="showSignUp = !showSignUp">Sign Up:</h3>
-<form name="signUp" ng-submit="submitSignUp(newUser)" ng-show="showSignUp">
-  <div class="form-group" ng-class="{'has-error' : signUp.name.$invalid && !signUp.name.$pristine,'has-success' : signUp.name.$valid }">
-    <a><label class="control-label" for="name">Name:</label></a>
-    <input type="text" name="name" class="form-control" ng-model="newUser.name" ng-minlength="2" ng-maxlength="30" ng-required="true" placeholder="Name">
-    <small ng-show="signUp.name.$error.minlength" class="help-block">Name is too short.</small>
-    <small ng-show="signUp.name.$error.maxlength" class="help-block">Name is too long.</small>
-  </div>
-  <div class="form-group" ng-class="{'has-error' : signUp.username.$invalid && !signUp.username.$pristine,'has-success' : signUp.username.$valid }">
-    <label class="control-label" for="name">Username:</label>
-    <input type="text" name="username" class="form-control" ng-model="newUser.username" ng-minlength="2" ng-maxlength="30" ng-required="true" placeholder="Username">
-    <small ng-show="signUp.username.$error.minlength" class="help-block">Username is too short.</small>
-    <small ng-show="signUp.username.$error.maxlength" class="help-block">Username is too long.</small>
-  </div>
-  <div class="form-group" ng-class="{'has-error' : signUp.email.$invalid && !signUp.email.$pristine,'has-success' : signUp.email.$valid }">
-    <label class="control-label" for="email">Email:</label>
-    <input type="text" name="email" class="form-control" ng-model="newUser.email" ng-minlength="2" ng-maxlength="50" ng-required="true" placeholder="Email">
-    <small ng-show="signUp.email.$error.minlength" class="help-block">Email is too short.</small>
-    <small ng-show="signUp.email.$error.maxlength" class="help-block">Email is too long.</small>
-  </div>
-  <div class="form-group" ng-class="{'has-error' : signUp.password.$invalid && !signUp.password.$pristine,'has-success' : signUp.password.$valid }">
-    <label class="control-label" for="password">Password:</label>
-    <input type="password" name="password" class="form-control" ng-model="newUser.password" ng-minlength="2" ng-maxlength="50" ng-required="true" placeholder="Password">
-    <small ng-show="signUp.password.$error.minlength" class="help-block">Password is too short.</small>
-    <small ng-show="signUp.password.$error.maxlength" class="help-block">Password is too long.</small>
-  </div>
-  <div class="form-group" ng-class="{'has-error' : signUp.location.$invalid && !signUp.location.$pristine,'has-success' : signUp.location.$valid }">
-    <label class="control-label" for="location">Location (zip code):</label>
-    <input type="text" name="location" class="form-control" ng-model="newUser.location" ng-minlength="2" ng-maxlength="50" ng-required="true" placeholder="Location (zip code)">
-    <small ng-show="signUp.location.$error.minlength" class="help-block">Location is too short.</small>
-    <small ng-show="signUp.location.$error.maxlength" class="help-block">Email is too long.</small>
-  </div>
-  <button type="submit" class="btn btn-default" ng-disabled="signUp.$invalid">Submit</button>
-</form>
+    <form name="logIn" ng-submit="submitLogIn(returningUser)" ng-show="showLogIn">
+        <div class="form-group" ng-class="{'has-error' : logIn.username.$invalid && !logIn.username.$pristine,'has-success' : logIn.username.$valid }">
+            <label class="control-label" for="username">Username:</label>
+            <input type="text" name="username" class="form-control" ng-model="returningUser.username" ng-minlength="2" ng-maxlength="30" ng-required="true" placeholder="Username">
+            <small ng-show="logIn.username.$error.minlength" class="help-block">Username is too short.</small>
+            <small ng-show="logIn.username.$error.maxlength" class="help-block">Username is too long.</small>
+        </div>
+        <div class="form-group" ng-class="{'has-error' : logIn.password.$invalid && !logIn.password.$pristine,'has-success' : logIn.password.$valid }">
+            <label class="control-label" for="password">Password:</label>
+            <input type="password" name="password" class="form-control" ng-model="returningUser.password" ng-minlength="2" ng-maxlength="100" ng-required="true" placeholder="Password">
+            <small ng-show="logIn.password.$error.minlength" class="help-block">Password is too short.</small>
+            <small ng-show="logIn.password.$error.maxlength" class="help-block">Password is too long.</small>
+        </div>
+        <button type="submit" class="btn btn-default" ng-disabled="logIn.$invalid">Submit</button>
+    </form>
+
+    <!-- <br> -->
+
+
+
+    <form name="signUp" ng-submit="submitSignUp(newUser)" ng-show="showSignUp">
+        <div class="form-group" ng-class="{'has-error' : signUp.name.$invalid && !signUp.name.$pristine,'has-success' : signUp.name.$valid }">
+            <a>
+                <label class="control-label" for="name">Name:</label>
+            </a>
+            <input type="text" name="name" class="form-control" ng-model="newUser.name" ng-minlength="2" ng-maxlength="30" ng-required="true" placeholder="Name">
+            <small ng-show="signUp.name.$error.minlength" class="help-block">Name is too short.</small>
+            <small ng-show="signUp.name.$error.maxlength" class="help-block">Name is too long.</small>
+        </div>
+        <div class="form-group" ng-class="{'has-error' : signUp.username.$invalid && !signUp.username.$pristine,'has-success' : signUp.username.$valid }">
+            <label class="control-label" for="name">Username:</label>
+            <input type="text" name="username" class="form-control" ng-model="newUser.username" ng-minlength="2" ng-maxlength="30" ng-required="true" placeholder="Username">
+            <small ng-show="signUp.username.$error.minlength" class="help-block">Username is too short.</small>
+            <small ng-show="signUp.username.$error.maxlength" class="help-block">Username is too long.</small>
+        </div>
+        <div class="form-group" ng-class="{'has-error' : signUp.email.$invalid && !signUp.email.$pristine,'has-success' : signUp.email.$valid }">
+            <label class="control-label" for="email">Email:</label>
+            <input type="text" name="email" class="form-control" ng-model="newUser.email" ng-minlength="2" ng-maxlength="50" ng-required="true" placeholder="Email">
+            <small ng-show="signUp.email.$error.minlength" class="help-block">Email is too short.</small>
+            <small ng-show="signUp.email.$error.maxlength" class="help-block">Email is too long.</small>
+        </div>
+        <div class="form-group" ng-class="{'has-error' : signUp.password.$invalid && !signUp.password.$pristine,'has-success' : signUp.password.$valid }">
+            <label class="control-label" for="password">Password:</label>
+            <input type="password" name="password" class="form-control" ng-model="newUser.password" ng-minlength="2" ng-maxlength="50" ng-required="true" placeholder="Password">
+            <small ng-show="signUp.password.$error.minlength" class="help-block">Password is too short.</small>
+            <small ng-show="signUp.password.$error.maxlength" class="help-block">Password is too long.</small>
+        </div>
+        <div class="form-group" ng-class="{'has-error' : signUp.location.$invalid && !signUp.location.$pristine,'has-success' : signUp.location.$valid }">
+            <label class="control-label" for="location">Location (zip code):</label>
+            <input type="text" name="location" class="form-control" ng-model="newUser.location" ng-minlength="2" ng-maxlength="50" ng-required="true" placeholder="Location (zip code)">
+            <small ng-show="signUp.location.$error.minlength" class="help-block">Location is too short.</small>
+            <small ng-show="signUp.location.$error.maxlength" class="help-block">Email is too long.</small>
+        </div>
+        <button type="submit" class="btn btn-default" ng-disabled="signUp.$invalid">Submit</button>
+    </form>
 </div>

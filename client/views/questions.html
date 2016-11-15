@@ -1,13 +1,30 @@
-<h1>Made it to Questions page</h1>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset">
+    <p class="error">{{error}}</p>
+</div>
 
 <div class="container">
   <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset panel panel-default">
+    <p class="questions-text">On a scale of 1 to 10, how concerned are you about climate change and the warming climate?</p>
     <md-slider flex md-discrete aria-label="rating" tick-interval="1" ng-model="rating.one" step="1" min="1" max="10">
     </md-slider>
+    <br>
+    <p class="questions-text">On a scale of 1 to 10, how concerned are you about protecting immigration rights?</p>
     <md-slider flex md-discrete aria-label="rating" tick-interval="1" ng-model="rating.two" step="1" min="1" max="10">
     </md-slider>
+    <br>
+    <p class="questions-text">On a scale of 1 to 10, how concerned are you about protecting marriage equality?</p>
     <md-slider flex md-discrete aria-label="rating" tick-interval="1" ng-model="rating.three" step="1" min="1" max="10">
     </md-slider>
-    <button type="button" name="button" ng-click="submitRating(rating)">Submit!</button>
+    <button type="button" name="button" class="btn btn-default questions-button" ng-click="submitRating(rating)">Submit!</button>
   </div>
 </div>
