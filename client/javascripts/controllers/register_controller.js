@@ -16,6 +16,7 @@ app.controller('RegisterController', function($scope, $location, ententeService,
 
     $scope.submitSignUp = function(newUser) {
         ententeService.signup.save(newUser, function(returnedUser) {
+          console.log('returnedUser in controller:', returnedUser);
             let user = returnedUser[0]
             if (!user.message) {
                 $cookies.putObject('loggedin', user)
