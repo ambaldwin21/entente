@@ -1,11 +1,15 @@
 <nav class="navbar calcite-navbar navbar-fixed-top calcite-text-light calcite-bg-dark calcite-bgcolor-dark-blue">
-    <!-- Header -->
     <div class="navbar-header">
         <a class="navbar-brand" role="button" id="calciteToggleNavbar" aria-haspopup="true">
+            <span class="esri-icon esri-icon-map-pin"></span>
         </a>
+    </div>
+    <div class="calcite-title calcite-overflow-hidden">
+        <span class="calcite-title-main">Entente</span>
     </div>
 </nav>
 
+<br>
 <br>
 <br>
 <br>
@@ -15,15 +19,19 @@
         <p class="error">{{error}}</p>
     </div>
 
-    <h2></h2>
+    <div class="col-lg-9 col-lg-offset-1 col-md-8 panel panel-default">
+        <p class="register-text">Begin making connections by logging into an
+            <br> existing account or signing up below.</p>
+    </div>
 
     <br>
     <button type="button" name="button" class="btn btn-default center-block" ng-click="showLogIn = !showLogIn">Log In</button>
+    <br>
     <button type="button" name="button" class="btn btn-default center-block" ng-click="showSignUp= !showSignUp">Sign Up</button>
 
     <br>
     <br>
-
+    <br>
 
     <form name="logIn" ng-submit="submitLogIn(returningUser)" ng-show="showLogIn">
         <div class="form-group" ng-class="{'has-error' : logIn.username.$invalid && !logIn.username.$pristine,'has-success' : logIn.username.$valid }">
@@ -38,18 +46,14 @@
             <small ng-show="logIn.password.$error.minlength" class="help-block">Password is too short.</small>
             <small ng-show="logIn.password.$error.maxlength" class="help-block">Password is too long.</small>
         </div>
-        <button type="submit" class="btn btn-default" ng-disabled="logIn.$invalid">Submit</button>
+        <button type="submit" class="btn btn-default center-block" ng-disabled="logIn.$invalid">Submit</button>
     </form>
 
     <!-- <br> -->
 
-
-
     <form name="signUp" ng-submit="submitSignUp(newUser)" ng-show="showSignUp">
         <div class="form-group" ng-class="{'has-error' : signUp.name.$invalid && !signUp.name.$pristine,'has-success' : signUp.name.$valid }">
-            <a>
-                <label class="control-label" for="name">Name:</label>
-            </a>
+            <label class="control-label" for="name">Name:</label>
             <input type="text" name="name" class="form-control" ng-model="newUser.name" ng-minlength="2" ng-maxlength="30" ng-required="true" placeholder="Name">
             <small ng-show="signUp.name.$error.minlength" class="help-block">Name is too short.</small>
             <small ng-show="signUp.name.$error.maxlength" class="help-block">Name is too long.</small>
@@ -78,6 +82,6 @@
             <small ng-show="signUp.location.$error.minlength" class="help-block">Location is too short.</small>
             <small ng-show="signUp.location.$error.maxlength" class="help-block">Email is too long.</small>
         </div>
-        <button type="submit" class="btn btn-default" ng-disabled="signUp.$invalid">Submit</button>
+        <button type="submit" class="btn btn-default center-block" ng-disabled="signUp.$invalid">Submit</button>
     </form>
 </div>
