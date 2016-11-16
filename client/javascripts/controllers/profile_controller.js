@@ -57,7 +57,7 @@ app.controller('ProfileController', function($scope, $routeParams, $location, $c
                 zoom: 4
             });
 
-            var climateLayer = new FeatureLayer("http://services7.arcgis.com/3nSqG09xIkKLmBqg/arcgis/rest/services/ClimateLayer/FeatureServer/0", {
+            var climateLayer = new FeatureLayer("https://services7.arcgis.com/3nSqG09xIkKLmBqg/arcgis/rest/services/ClimateLayer/FeatureServer/0", {
                 id: 'climate'
             });
 
@@ -66,7 +66,7 @@ app.controller('ProfileController', function($scope, $routeParams, $location, $c
                 title: 'Climate Change'
             });
 
-            var marriageLayer = new FeatureLayer("http://services7.arcgis.com/3nSqG09xIkKLmBqg/arcgis/rest/services/MarriageLayer/FeatureServer/0", {
+            var marriageLayer = new FeatureLayer("https://services7.arcgis.com/3nSqG09xIkKLmBqg/arcgis/rest/services/MarriageLayer/FeatureServer/0", {
                 id: 'marriage'
             });
 
@@ -75,7 +75,7 @@ app.controller('ProfileController', function($scope, $routeParams, $location, $c
                 title: 'Marriage Equality'
             });
 
-            var immigrationLayer = new FeatureLayer("http://services7.arcgis.com/3nSqG09xIkKLmBqg/arcgis/rest/services/ImmigrationLayer/FeatureServer/0", {
+            var immigrationLayer = new FeatureLayer("https://services7.arcgis.com/3nSqG09xIkKLmBqg/arcgis/rest/services/ImmigrationLayer/FeatureServer/0", {
                 id: 'immigration'
             });
 
