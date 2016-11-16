@@ -1,3 +1,5 @@
+'use strict'
+
 app.controller('ProfileController', function($scope, $routeParams, $location, $cookies) {
 
     $scope.errorMessage = false
@@ -35,13 +37,14 @@ app.controller('ProfileController', function($scope, $routeParams, $location, $c
             "dijit/registry",
 
             "esri/dijit/Legend",
+            "dijit/form/CheckBox",
 
             "dijit/layout/BorderContainer", "dijit/layout/ContentPane",
             "dijit/form/Button", "dojo/domReady!"
 
         ], function(
             Map, Search, dom, screenUtils, domConstruct, query, Draw, Edit, Graphic, esriConfig, FeatureLayer, SimpleMarkerSymbol, TemplatePicker,
-            arrayUtils, event, lang, parser, registry, Legend) {
+            arrayUtils, event, lang, parser, registry, Legend, CheckBox) {
 
             parser.parse();
             esriConfig.defaults.io.proxyUrl = "/proxy/";
@@ -54,7 +57,29 @@ app.controller('ProfileController', function($scope, $routeParams, $location, $c
                 zoom: 4
             });
 
-            map.on("layers-add-result", edit, function() {
+            var climateLayer = new FeatureLayer("http://services7.arcgis.com/3nSqG09xIkKLmBqg/arcgis/rest/services/ClimateLayer/FeatureServer/0", {
+                id: 'climate'
+            });
+
+            legendLayers.push({
+                layer: climateLayer,
+                title: 'Climate Change'
+            });
+
+            var marriageLayer = new FeatureLayer("http://services7.arcgis.com/3nSqG09xIkKLmBqg/arcgis/rest/services/MarriageLayer/FeatureServer/0", {
+                id: 'marriage'
+            });
+
+            legendLayers.push({
+                layer: marriageLayer,
+                title: 'Marriage Equality'
+            });
+
+            var immigrationLayer = new FeatureLayer("http://services7.arcgis.com/3nSqG09xIkKLmBqg/arcgis/rest/services/ImmigrationLayer/FeatureServer/0", {
+                id: 'immigration'
+            });
+
+            map.on('layers-add-result', function() {
                 var legend = new Legend({
                     map: map,
                     layerInfos: legendLayers
@@ -62,29 +87,36 @@ app.controller('ProfileController', function($scope, $routeParams, $location, $c
                 legend.startup();
             });
 
-            var climateLayer = new FeatureLayer("http://services7.arcgis.com/3nSqG09xIkKLmBqg/arcgis/rest/services/ClimateLayer/FeatureServer/0");
-
-            legendLayers.push({
-                layer: climateLayer,
-                title: 'Climate Change'
-            });
-
-            var marriageLayer = new FeatureLayer("http://services7.arcgis.com/3nSqG09xIkKLmBqg/arcgis/rest/services/MarriageLayer/FeatureServer/0");
-
-            legendLayers.push({
-                layer: marriageLayer,
-                title: 'Marriage Equality'
-            });
-
-
-            var immigrationLayer = new FeatureLayer("http://services7.arcgis.com/3nSqG09xIkKLmBqg/arcgis/rest/services/ImmigrationLayer/FeatureServer/0");
-
             legendLayers.push({
                 layer: immigrationLayer,
                 title: 'Immigration Rights'
             });
 
             map.addLayers([climateLayer, marriageLayer, immigrationLayer]);
+
+            map.on('layers-add-result', function() {
+                arrayUtils.forEach(legendLayers, function(layer) {
+                    var layerName = layer.title;
+                    var checkBox = new CheckBox ({
+                        name: "checkBox" + layer.layer.id,
+                        value: layer.layer.id,
+                        checked: layer.layer.visible
+                    })
+                    domConstruct.place(checkBox.domNode, dom.byId("toggle"), "after");
+                    var checkLabel = domConstruct.create('label', {
+                      'for': checkBox.name,
+                      innerHTML: layerName
+                    }, checkBox.domNode, "after");
+                    domConstruct.place("<br />", checkLabel, "after");
+                    checkBox.on("change", function() {
+                        var targetLayer = map.getLayer(this.value);
+                        targetLayer.setVisibility(!targetLayer.visible);
+                        this.checked = targetLayer.visible;
+                    });
+
+                });
+            });
+
 
             var symbol = new SimpleMarkerSymbol({
                 "color": [0, 0, 128, 128],
@@ -103,8 +135,6 @@ app.controller('ProfileController', function($scope, $routeParams, $location, $c
             });
 
             function edit(evt) {
-                console.log('event:', evt);
-
                 var currentLayer = null;
                 var layers = arrayUtils.map(evt.layers, function(result) {
                     return result.layer;
