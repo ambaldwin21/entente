@@ -1,35 +1,39 @@
-<h1 ng-show="errorMessage">{{error}}</h1>
-
-<div class="center-block" id="sidebar-wrapper">
-  <div id="welcome">Welcome, {{user.name}}</div>
-  <div class="panel panel-default">
-    <div class="panel-body">
-      Slider
+<div class="claro">
+  <div class="box" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="gutters:true, design:'headline'">
+    <div id="profileMap" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'">
+      <div id="profileSearch"></div>
     </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-body">
-      Slider
+    <div id="rightPane" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'left'">
+      <div id="welcome">Welcome, {{user.name}}</div>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          Slider
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          Slider
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          Slider
+        </div>
+      </div>
+      <button class="center-block btn btn-default">Submit</button>
+      <div class="btn-group btn-group-justified" role="group" id="buttonGroup">
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default">Edit Profile</button>
+        </div>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default">Chat</button>
+        </div>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default" ng-click="logout()">LogOut</button>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-body">
-      Slider
-    </div>
-  </div>
-  <button class="center-block btn btn-default">
-    Submit
-  </button>
-  <div class="btn-group btn-group-justified" role="group" id="buttonGroup">
-    <div class="btn-group" role="group">
-      <button type="button" class="btn btn-default">Edit Profile</button>
-    </div>
-    <div class="btn-group" role="group">
-      <button type="button" class="btn btn-default">Chat</button>
-    </div>
-    <div class="btn-group" role="group">
-      <button type="button" class="btn btn-default" ng-click="logout()">LogOut</button>
-    </div>
+    <div id="templatePickerDiv"></div>
   </div>
 </div>
-<div class="pull-right" id="profileMap"></div>
+</div>

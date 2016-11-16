@@ -8,6 +8,11 @@ body,
   height: 700px;
 }
 
+.claro .dijitBorderContainer {
+  height: 700px;
+  width: auto;
+}
+
 #search {
    display: block;
    position: absolute;
@@ -16,49 +21,27 @@ body,
    left: 75px;
 }
 
-#sidebar-wrapper {
-  margin-left: -250px;
-  padding: 20px;
-  color: white;
-  left: 250px;
-  width: 25%;
-  background: black;
-  position: fixed;
-  height: 100%;
-  overflow-y: auto;
-  z-index: 1000;
-  transition: all 0.4s ease 0s;
-}
-
 #profileMap {
-  position: relative;
-  width: 75%;
-  height: 767px;
-  display: inline-block;
+  padding:1px;
 }
 
-.sidebar-nav {
-  position: absolute;
-  top: 0;
-  width: 25%;
-  list-style: none;
-  margin: 0;
+#profileSearch {
+   display: block;
+   position: absolute;
+   z-index: 3;
+   top: 20px;
+   left: 75px;
+}
+
+#rightPane {
+  background-color: black;
   padding: 0;
+  width: 250px;
+  height: 250px;
 }
 
-#welcome {
-  font-size: 50px;
-  padding: inherit;
-}
-
-#buttonGroup {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-
-.panel {
-  color: black;
+.templatePicker {
+  border: solid 2px #444;
 }
 
 #mapContainer {
