@@ -18,7 +18,7 @@ exports.seed = function(knex) {
         Long: -105.2839
       },
       {
-        name: 'alihobbs',
+        name: 'Ali Hobbs',
         username: 'alih',
         email: 'ali@gmail.com',
         hash: '$2a$08$c/GOc6lQtUx7kV6GvyfAf.SMnu3.MMwzZBdvQ8JqHtCB1VPunjVzu',
