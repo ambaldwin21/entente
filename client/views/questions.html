@@ -1,8 +1,11 @@
 <nav class="navbar calcite-navbar navbar-fixed-top calcite-text-light calcite-bg-dark calcite-bgcolor-dark-blue">
-    <!-- Header -->
     <div class="navbar-header">
         <a class="navbar-brand" role="button" id="calciteToggleNavbar" aria-haspopup="true">
+            <span class="esri-icon esri-icon-map-pin"></span>
         </a>
+    </div>
+    <div class="calcite-title calcite-overflow-hidden">
+        <span class="calcite-title-main">Entente</span>
     </div>
 </nav>
 
@@ -18,6 +21,7 @@
 
 <div class="container">
   <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset panel panel-default">
+    <br>
     <p class="questions-text">On a scale of 1 to 10, how concerned are you about climate change and the warming climate?</p>
     <md-slider flex md-discrete aria-label="rating" tick-interval="1" ng-model="rating.one" step="1" min="1" max="10">
     </md-slider>
