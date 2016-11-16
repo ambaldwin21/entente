@@ -6,7 +6,6 @@ var geocoder = require('geocoder')
 
 
 router.post('/', function(req, res, next) {
-  console.log(req.body);
   knex('users')
     .where('email', req.body.email)
     .then(function(user) {
@@ -28,7 +27,6 @@ router.post('/', function(req, res, next) {
             .insert(newUser)
             .returning('*')
             .then(function(insertedUser) {
-              console.log('insertedUser', insertedUser);
               res.json(insertedUser)
             })
         })
@@ -36,7 +34,6 @@ router.post('/', function(req, res, next) {
         const error = {
           message: 'Already a user, please login.'
         }
-        console.log(error);
         res.json([error])
       }
     })

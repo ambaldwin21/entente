@@ -1,4 +1,10 @@
-var express = require('express');
+var express = require('express'),
+  io = require('socket.io'),
+  http = require('http'),
+  app = express(),
+  server = http.createServer(app),
+  io = io.listen(server)
+  server.listen(3000)
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -7,13 +13,20 @@ var bodyParser = require('body-parser');
 var geocoder = require ('geocoder')
 
 
-
 var api = require('./routes/api');
 var register = require('./routes/register');
 var signup = require('./routes/signup');
 var questions = require('./routes/questions');
 
-var app = express();
+
+// var express = require('express'),
+// io = require('socket.io'),
+// http = require('http'),
+// app = express(),
+// server = http.createServer(app),
+// io = io.listen(server);
+// server.listen(3000);
+
 
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
