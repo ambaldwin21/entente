@@ -24,3 +24,8 @@ app.service('ententeService', function ($resource) {
     })
     }
 })
+
+//from tutorial
+app.service('SocketService', function ($resource) {
+
+})

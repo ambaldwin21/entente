@@ -19,15 +19,6 @@ var signup = require('./routes/signup');
 var questions = require('./routes/questions');
 
 
-// var express = require('express'),
-// io = require('socket.io'),
-// http = require('http'),
-// app = express(),
-// server = http.createServer(app),
-// io = io.listen(server);
-// server.listen(3000);
-
-
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
 // app.set('view engine', 'jade');
