@@ -25,6 +25,8 @@ body,
 #profileMap {
   padding: 1px;
   border-radius: 5px;
+  margin-top: 25px;
+  width: 100%;
 }
 
 #profileSearch {
@@ -40,6 +42,7 @@ body,
   width: 250px;
   height: 250px;
   border-radius: 5px;
+  margin-top: 25px;
 }
 
 .templatePicker {
@@ -136,14 +139,7 @@ input[type=password] {
 
 body {
   background-image: url("/stylesheets/desert-wallpaper.jpg");
-  /*background-size: cover;
-  background-position: top center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  height: 100%;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;*/
+
 }
 
 #toplogo {
@@ -168,17 +164,10 @@ body {
   color: white;
 
 }
-/*.logo-main {
-  height: 130px;
-  width: 240px;
-}*/
 
 .bottom-title {
   text-align: center;
-
 }
-
-
 
 .glyphicon-arrow-right {
   font-size: 5em;
@@ -192,8 +181,6 @@ body {
   margin-right: 30px;
   margin-left: 20px;
 }
-
-
 
 #gestures {
   margin-left: 30px;
