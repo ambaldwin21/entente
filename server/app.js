@@ -17,6 +17,9 @@ var api = require('./routes/api');
 var register = require('./routes/register');
 var signup = require('./routes/signup');
 var questions = require('./routes/questions');
+var socket = require('./routes/socket');
+
+io.sockets.on('connection', socket)
 
 
 // view engine setup
@@ -35,6 +38,8 @@ app.use('/', api);
 app.use('/register', register);
 app.use('/signup', signup);
 app.use('/questions', questions);
+app.use('/socket', socket);
+
 
 const port = process.env.PORT || 8000;
 

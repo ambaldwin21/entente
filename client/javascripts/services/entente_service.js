@@ -25,7 +25,6 @@ app.service('ententeService', function ($resource) {
     }
 })
 
-//from tutorial
 app.factory('socket', function ($rootScope) {
   var socket = io.connect();
   return {

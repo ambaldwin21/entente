@@ -1,7 +1,9 @@
 app.controller('SocketController', function($scope, $location, ententeService, $cookies, socket) {
 $scope.test = "scope test"
 
-// Socket listeners
+// function AppCtrl($scope, socket) {
+
+  // Socket listeners
   // ================
 
   socket.on('init', function (data) {
@@ -13,17 +15,17 @@ $scope.test = "scope test"
     $scope.messages.push(message);
   });
 
-  socket.on('change:name', function (data) {
-    changeName(data.oldName, data.newName);
-  });
+  // socket.on('change:name', function (data) {
+  //   changeName(data.oldName, data.newName);
+  // });
 
-  socket.on('user:join', function (data) {
-    $scope.messages.push({
-      user: 'chatroom',
-      text: 'User ' + data.name + ' has joined.'
-    });
-    $scope.users.push(data.name);
-  });
+  // socket.on('user:join', function (data) {
+  //   $scope.messages.push({
+  //     user: 'chatroom',
+  //     text: 'User ' + data.name + ' has joined.'
+  //   });
+  //   $scope.users.push(data.name);
+  // });
 
   // add a message to the conversation when a user disconnects or leaves the room
   // socket.on('user:left', function (data) {
@@ -43,6 +45,7 @@ $scope.test = "scope test"
 
   // Private helpers
   // ===============
+
   // var changeName = function (oldName, newName) {
   //   // rename user in list of users
   //   var i;
@@ -51,7 +54,7 @@ $scope.test = "scope test"
   //       $scope.users[i] = newName;
   //     }
   //   }
-  //
+
   //   $scope.messages.push({
   //     user: 'chatroom',
   //     text: 'User ' + oldName + ' is now known as ' + newName + '.'
@@ -93,7 +96,6 @@ $scope.test = "scope test"
     // clear message box
     $scope.message = '';
   };
-}
-
+// }
 
 })
