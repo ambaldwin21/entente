@@ -20,7 +20,8 @@ var questions = require('./routes/questions');
 var socket = require('./routes/socket');
 
 io.sockets.on('connection', socket)
-
+io.set('transports', ['xhr-polling']);
+io.set('polling duration', 10);
 
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
