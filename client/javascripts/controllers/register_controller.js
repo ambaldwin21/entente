@@ -4,9 +4,10 @@ app.controller('RegisterController', function($scope, $location, ententeService,
         ententeService.login.save(returningUser, function(loggedinUser) {
             if (!loggedinUser.message) {
                 $cookies.putObject('loggedin', loggedinUser)
+                var id = loggedinUser.id
                 $scope.returningUser = {}
                 $scope.logIn.$setPristine()
-                $location.url('/profile')
+                $location.url(`/profile/${id}`)
             } else {
                 $scope.error = loggedinUser.message
             }

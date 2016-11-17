@@ -123,32 +123,6 @@ app.controller('ProfileController', function($scope, $routeParams, $location, $c
                 });
             });
 
-            // map.on('layers-add-result', edit)
-            //
-            // function edit(evt) {
-            //     console.log('evt:', evt);
-            //     map.on('click', function(evt) {
-            //         console.log('evt:', evt);
-            //         immigrationLayer.applyEdits([symbol])
-            //     })
-            // }
-            //
-            // var symbol = new SimpleMarkerSymbol({
-            //     "color": [0, 0, 128, 128],
-            //     "size": 18,
-            //     "angle": 0,
-            //     "xoffset": 0,
-            //     "yoffset": 0,
-            //     "type": "esriSMS",
-            //     "style": "esriSMSCircle",
-            //     "outline": {
-            //         "color": [0, 0, 128, 255],
-            //         "width": 1,
-            //         "type": "esriSLS",
-            //         "style": "esriSLSSolid"
-            //     }
-            // });
-
             var search = new Search({
                 map: map
             }, dom.byId("profileSearch"));
@@ -171,9 +145,6 @@ app.controller('ProfileController', function($scope, $routeParams, $location, $c
             $cookies.remove('loggedin')
             $location.url('/')
         }
-
-
-
     }
 
 })
