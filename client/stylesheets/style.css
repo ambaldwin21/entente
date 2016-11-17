@@ -11,6 +11,7 @@ body,
 .claro .dijitBorderContainer {
   height: 700px;
   width: auto;
+
 }
 
 #search {
@@ -22,7 +23,8 @@ body,
 }
 
 #profileMap {
-  padding:1px;
+  padding: 1px;
+  border-radius: 5px;
 }
 
 #profileSearch {
@@ -37,6 +39,7 @@ body,
   padding: 0;
   width: 250px;
   height: 250px;
+  border-radius: 5px;
 }
 
 .templatePicker {
