@@ -2,6 +2,14 @@ var express = require('express');
 var router = express.Router();
 var knex = require('../db/knex');
 
+router.get('/:id', (req, res, next) => {
+    knex('ratings')
+        .where('user_id', req.params.id)
+        .then((ratings) => {
+            res.json(ratings)
+        })
+})
+
 router.post('/', (req, res, next) => {
 
     let oneRating = {

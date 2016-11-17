@@ -16,6 +16,10 @@ app.service('ententeService', function ($resource) {
       'save': {
         method: 'POST',
         isArray: false
+      },
+      'get': {
+        methid: 'GET',
+        isArray: true
       }
     })
     }

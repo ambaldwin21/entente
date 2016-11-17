@@ -1,6 +1,6 @@
 'use strict'
 
-app.controller('ProfileController', function($scope, $routeParams, $location, $cookies) {
+app.controller('ProfileController', function($scope, $routeParams, $location, $cookies, ententeService) {
 
     $scope.errorMessage = false
 
@@ -11,6 +11,14 @@ app.controller('ProfileController', function($scope, $routeParams, $location, $c
         $scope.error = "You must be logged in to view this page"
     } else {
         $scope.user = cookie
+
+        $scope.ratings = ententeService.questions.get({
+            id: $routeParams.id
+        }, function(returnedRatings) {
+            $scope.ratings.climate = Number.parseInt(returnedRatings[0].rating)
+            $scope.ratings.immigration = Number.parseInt(returnedRatings[1].rating)
+            $scope.ratings.marriage = Number.parseInt(returnedRatings[2].rating)
+        })
 
         var map;
         require([
@@ -42,9 +50,7 @@ app.controller('ProfileController', function($scope, $routeParams, $location, $c
             "dijit/layout/BorderContainer", "dijit/layout/ContentPane",
             "dijit/form/Button", "dojo/domReady!"
 
-        ], function(
-            Map, Search, dom, screenUtils, domConstruct, query, Draw, Edit, Graphic, esriConfig, FeatureLayer, SimpleMarkerSymbol, TemplatePicker,
-            arrayUtils, event, lang, parser, registry, Legend, CheckBox) {
+        ], function(Map, Search, dom, screenUtils, domConstruct, query, Draw, Edit, Graphic, esriConfig, FeatureLayer, SimpleMarkerSymbol, TemplatePicker, arrayUtils, event, lang, parser, registry, Legend, CheckBox) {
 
             parser.parse();
             esriConfig.defaults.io.proxyUrl = "/proxy/";
@@ -97,15 +103,15 @@ app.controller('ProfileController', function($scope, $routeParams, $location, $c
             map.on('layers-add-result', function() {
                 arrayUtils.forEach(legendLayers, function(layer) {
                     var layerName = layer.title;
-                    var checkBox = new CheckBox ({
+                    var checkBox = new CheckBox({
                         name: "checkBox" + layer.layer.id,
                         value: layer.layer.id,
                         checked: layer.layer.visible
                     })
                     domConstruct.place(checkBox.domNode, dom.byId("toggle"), "after");
                     var checkLabel = domConstruct.create('label', {
-                      'for': checkBox.name,
-                      innerHTML: layerName
+                        'for': checkBox.name,
+                        innerHTML: layerName
                     }, checkBox.domNode, "after");
                     domConstruct.place("<br />", checkLabel, "after");
                     checkBox.on("change", function() {
@@ -117,35 +123,31 @@ app.controller('ProfileController', function($scope, $routeParams, $location, $c
                 });
             });
 
-
-            var symbol = new SimpleMarkerSymbol({
-                "color": [0, 0, 128, 128],
-                "size": 18,
-                "angle": 0,
-                "xoffset": 0,
-                "yoffset": 0,
-                "type": "esriSMS",
-                "style": "esriSMSCircle",
-                "outline": {
-                    "color": [0, 0, 128, 255],
-                    "width": 1,
-                    "type": "esriSLS",
-                    "style": "esriSLSSolid"
-                }
-            });
-
-            function edit(evt) {
-                var currentLayer = null;
-                var layers = arrayUtils.map(evt.layers, function(result) {
-                    return result.layer;
-                });
-
-                var editTool = new Edit(map);
-                editToolbar.on("deactivate", function(evt) {
-                    currentLayer.applyEdits(null, [evt.graphic], null);
-                });
-
-            }
+            // map.on('layers-add-result', edit)
+            //
+            // function edit(evt) {
+            //     console.log('evt:', evt);
+            //     map.on('click', function(evt) {
+            //         console.log('evt:', evt);
+            //         immigrationLayer.applyEdits([symbol])
+            //     })
+            // }
+            //
+            // var symbol = new SimpleMarkerSymbol({
+            //     "color": [0, 0, 128, 128],
+            //     "size": 18,
+            //     "angle": 0,
+            //     "xoffset": 0,
+            //     "yoffset": 0,
+            //     "type": "esriSMS",
+            //     "style": "esriSMSCircle",
+            //     "outline": {
+            //         "color": [0, 0, 128, 255],
+            //         "width": 1,
+            //         "type": "esriSLS",
+            //         "style": "esriSLSSolid"
+            //     }
+            // });
 
             var search = new Search({
                 map: map
@@ -169,6 +171,8 @@ app.controller('ProfileController', function($scope, $routeParams, $location, $c
             $cookies.remove('loggedin')
             $location.url('/')
         }
+
+
 
     }
 
