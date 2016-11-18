@@ -1,5 +1,10 @@
 app.controller('RegisterController', function($scope, $location, ententeService, $cookies) {
 
+  $scope.clearForm = function() {
+    $scope.newUser = {}
+    $scope.signUp.$setPristine()
+  }
+
     $scope.submitLogIn = function(returningUser) {
         ententeService.login.save(returningUser, function(loggedinUser) {
             if (!loggedinUser.message) {
@@ -15,7 +20,7 @@ app.controller('RegisterController', function($scope, $location, ententeService,
     }
 
 
-    $scope.submitSignUp = function(newUser) {
+    $scope.submitSignUp = function(newUser,form) {
         ententeService.signup.save(newUser, function(returnedUser) {
             let user = returnedUser[0]
             if (!user.message) {
