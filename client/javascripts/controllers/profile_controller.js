@@ -15,9 +15,9 @@ app.controller('ProfileController', function($scope, $routeParams, $location, $c
         $scope.ratings = ententeService.questions.get({
             id: $routeParams.id
         }, function(returnedRatings) {
-            $scope.ratings.climate = Number.parseInt(returnedRatings[0].rating)
+            $scope.ratings.marriage = Number.parseInt(returnedRatings[0].rating)
             $scope.ratings.immigration = Number.parseInt(returnedRatings[1].rating)
-            $scope.ratings.marriage = Number.parseInt(returnedRatings[2].rating)
+            $scope.ratings.climate = Number.parseInt(returnedRatings[2].rating)
         })
 
         var map;
