@@ -28,4 +28,4 @@ The name comes from the French word entente, which means ‘an alliance of parti
 
 ##Technologies
 
-The app uses a Bootstrap framework with Angular and Angular Materials for the slider functionaly. Node, Express.js to query the PostgreSQL database. Maps powered by ESRI/ArcGIS API and chat functionality is Socket.io.
+The app uses a Bootstrap framework with Angular and Angular Materials for the slider functionality. Node.js, Express to query the PostgreSQL database. Maps powered by ESRI/ArcGIS technologies and chat functionality is Socket.io.
